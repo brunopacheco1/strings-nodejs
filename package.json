@@ -1,0 +1,26 @@
+{
+  "name": "strings-nodejs",
+  "version": "1.0.0",
+  "description": "REST API for string functions.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunopacheco1/strings-nodejs.git"
+  },
+  "keywords": [
+    "string",
+    "nodejs"
+  ],
+  "author": "Bruno Pacheco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunopacheco1/strings-nodejs/issues"
+  },
+  "homepage": "https://github.com/brunopacheco1/strings-nodejs#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
