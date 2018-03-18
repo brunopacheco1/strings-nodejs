@@ -1,5 +1,11 @@
-module.exports = function() {
-    var express = require('express')();
+module.exports = () => {
+    var express = require("express");
 
-    return express;
+    var load = require("express-load");
+
+    var app = express();
+
+    load("api").then("repository").into(app);
+
+    return app;
 }
