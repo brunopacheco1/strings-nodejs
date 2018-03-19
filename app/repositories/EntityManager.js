@@ -1,7 +1,5 @@
 class EntityManager {
     constructor(app) {
-        console.log("EntityManager constructor.");
-
         var mysql = require("mysql");
     
         this._connection = mysql.createConnection({
@@ -14,8 +12,6 @@ class EntityManager {
 
     getConnection() {
         return new Promise((resolve, reject) => {
-            console.log("Returning connection...");
-
             resolve(this._connection);
         });
     }

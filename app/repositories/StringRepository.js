@@ -1,7 +1,6 @@
 class StringRepository {
 
     constructor(app) {
-        console.log("StringRepository constructor.");
         this._entityManager = app.repositories.EntityManager(app);
     }
 
@@ -13,9 +12,7 @@ class StringRepository {
 
     get(id) {
         return this._entityManager.getConnection().then((connection) => {
-            console.log("Getting... " + id);
-
-            return id + "_result";
+            return id;
         });
     }
 }
