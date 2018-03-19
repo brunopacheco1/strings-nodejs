@@ -1,25 +1,37 @@
 module.exports = (app) => {
-    app.get("/strings/:id", (request, response) => {
-        let result = app.services.StringService(app).get(request.params.id);
-
+    let errorFunction = (errorResult) => {
         response.json({
-            response : result
+            error : errorResult
         });
+    };
+    
+    app.get("/strings/:id", (request, response) => {
+        let service = app.services.StringService(app);
+        
+        service.get(request.params.id).then((stringResult) => {
+            response.json({
+                response : stringResult
+            });
+        }).catch(errorFunction);
     });
     
     app.get("/strings/:string/reverse", (request, response) => {
-        let result = app.services.StringService(app).reverse(request.params.string);
-
-        response.json({
-            response : result
-        });
+        let service = app.services.StringService(app);
+        
+        service.reverse(request.params.string).then((stringReversed) => {
+            response.json({
+                response : stringReversed
+            });
+        }).catch(errorFunction);
     });
 
     app.post("/strings/:string", (request, response) => {
-        let result = app.services.StringService(app).save(request.params.string);
+        let service = app.services.StringService(app);
 
-        response.json({
-            response : result
-        });
+        service.save(request.params.string).then(() => {
+            response.json({
+                response : "String saved!"
+            });
+        }).catch(errorFunction);
     });
 }

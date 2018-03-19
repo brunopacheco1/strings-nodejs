@@ -13,9 +13,11 @@ class EntityManager {
     }
 
     getConnection() {
-        console.log("Returning connection...");
+        return new Promise((resolve, reject) => {
+            console.log("Returning connection...");
 
-        return this._connection;
+            resolve(this._connection);
+        });
     }
 }
 

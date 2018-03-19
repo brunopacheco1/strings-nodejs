@@ -5,21 +5,19 @@ class StringService {
     }
 
     get(id) {
-        let result = this._stringRepository.get(id);
-
-        return result;
+        return this._stringRepository.get(id);
     }
 
     reverse(id) {
-        let result = this._stringRepository.get(id);
+        return this._stringRepository.get(id).then((stringResult) => {
+            console.log("Reversing... " + stringResult);
 
-        console.log("Reversing... " + id);
-
-        return result.split("").reverse().join("");
+            return stringResult.split("").reverse().join("");
+        });
     }
 
     save(string) {
-        this._stringRepository.save(id);
+        return this._stringRepository.save(id);
     }
 }
 

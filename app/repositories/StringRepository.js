@@ -6,15 +6,17 @@ class StringRepository {
     }
 
     save(string) {
-        console.log("Saving... " + string);
+        return this._entityManager.getConnection().then((connection) => {
+            console.log("Saving... " + string)
+        });
     }
 
     get(id) {
-        this._entityManager.getConnection();
+        return this._entityManager.getConnection().then((connection) => {
+            console.log("Getting... " + id);
 
-        console.log("Getting... " + id);
-
-        return id + "_result";
+            return id + "_result";
+        });
     }
 }
 
