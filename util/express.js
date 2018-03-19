@@ -5,7 +5,10 @@ module.exports = () => {
 
     var app = express();
 
-    load("api").then("repository").into(app);
+    load("repositories", {cwd: 'app'})
+        .then("services")
+        .then("api")
+        .into(app);
 
     return app;
 }
