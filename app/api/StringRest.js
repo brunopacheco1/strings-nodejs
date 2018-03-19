@@ -27,10 +27,22 @@ module.exports = (app) => {
         }).catch((error) => errorHandler(error, response));
     });
 
-    app.post("/strings/:string", (request, response) => {
+    app.post("/strings", (request, response) => {
+        request.assert("string", "String is a mandatory field.").notEmpty();
+
+        let errors = request.validationErros();
+
+        if(errors) {
+            response.status(400).json({
+                errors : errors
+            });
+
+            return;
+        }
+
         let service = app.services.StringService(app);
 
-        service.save(request.params.string).then(() => {
+        service.save(request.body).then(() => {
             response.json({
                 response : "String saved!"
             });

@@ -6,7 +6,7 @@ class StringRepository {
 
     save(string) {
         return this._entityManager.getConnection().then((connection) => {
-            console.log("Saving... " + string)
+            console.log("Saving... " + string.string)
         });
     }
 
