@@ -4,7 +4,7 @@
   "description": "REST API for string functions.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/brunopacheco1/strings-nodejs#readme",
   "dependencies": {
+    "consign": "^0.1.6",
     "express": "^4.16.3",
-    "express-load": "^1.1.16",
     "mysql": "^2.15.0"
   },
   "devDependencies": {

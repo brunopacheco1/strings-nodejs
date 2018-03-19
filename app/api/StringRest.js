@@ -2,7 +2,7 @@ module.exports = (app) => {
     let errorHandler = (error, response) => {
         console.log(error);
 
-        response.json({
+        response.status(500).json({
             error : error.message
         });
     };

@@ -1,13 +1,14 @@
 module.exports = () => {
-    var express = require("express");
+    let express = require("express");
 
-    var load = require("express-load");
+    let consign = require("consign");
 
-    var app = express();
+    let app = express();
 
-    load("repositories", {cwd: 'app'})
-        .then("services")
-        .then("api")
+    consign({cwd: 'app'})
+        .include("repositories")
+        .include("services")
+        .include("api")
         .into(app);
 
     return app;
