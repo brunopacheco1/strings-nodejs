@@ -1,7 +1,9 @@
 module.exports = (app) => {
-    let errorFunction = (errorResult) => {
+    let errorHandler = (error, response) => {
+        console.log(error);
+
         response.json({
-            error : errorResult
+            error : error.message
         });
     };
     
@@ -12,7 +14,7 @@ module.exports = (app) => {
             response.json({
                 response : stringResult
             });
-        }).catch(errorFunction);
+        }).catch((error) => errorHandler(error, response));
     });
     
     app.get("/strings/:string/reverse", (request, response) => {
@@ -22,7 +24,7 @@ module.exports = (app) => {
             response.json({
                 response : stringReversed
             });
-        }).catch(errorFunction);
+        }).catch((error) => errorHandler(error, response));
     });
 
     app.post("/strings/:string", (request, response) => {
@@ -32,6 +34,6 @@ module.exports = (app) => {
             response.json({
                 response : "String saved!"
             });
-        }).catch(errorFunction);
+        }).catch((error) => errorHandler(error, response));
     });
 }
