@@ -1,6 +1,6 @@
 class EntityManager {
     constructor(app) {
-        var mysql = require("mysql");
+        let mysql = require("mysql");
     
         this._connection = mysql.createConnection({
             host : "localhost",
